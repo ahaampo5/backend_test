@@ -5,11 +5,9 @@
         "name": "Python: FastAPI (uvicorn)",
         "type": "debugpy",
         "request": "launch",
-  
-        // module 방식을 사용하면 uvicorn을 Python 모듈로 실행
+
         "module": "uvicorn",
   
-        // uvicorn 실행시 필요한 인자: "app.main:app" 형식
         "args": [
           "app.main:app",
           "--reload",      // 코드 수정 시 자동 리로드
@@ -20,7 +18,21 @@
         ],
   
         // VS Code 내장 터미널에서 실행할지 여부
+        "console": "integratedTerminal",
+        "cwd": "${workspaceFolder}"
+      },
+      {
+        "name": "Python: main.py 직접 디버깅",
+        "type": "debugpy",
+        "request": "launch",
+        "module": "app.main",
         "console": "integratedTerminal"
+      }
+    ],
+    "compounds": [
+      {
+        "name": "Uvicorn + Python 동시 디버그",
+        "configurations": ["Python: FastAPI (uvicorn)", "Python: main.py 직접 디버깅"]
       }
     ]
   }
