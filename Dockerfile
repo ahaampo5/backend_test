@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.10
 
 # 작업 디렉터리 생성
 WORKDIR /app
